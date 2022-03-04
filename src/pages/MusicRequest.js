@@ -195,7 +195,7 @@ function showMusicData( data ) {
 }
 
 function searchLastFM( query ) {
-    const promise = axios.post('http://ws.audioscrobbler.com/2.0', qs.stringify({
+    const promise = axios.post('https://ws.audioscrobbler.com/2.0', qs.stringify({
         "method": "track.search",
         "limit": 5,
         "track": query,
