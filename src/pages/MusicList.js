@@ -21,17 +21,16 @@ import { toast } from 'react-toastify';
 import { dbGet, dbUpdate } from 'utils/firebase'
 
 export default function MusicList() {
-
     
     const [ dormitory, setDormitory ] = React.useState("saReum")
     
-    const [ date, setDate ] = React.useState(moment(new Date()));
+    const [ date, setDate ] = React.useState(moment(new Date()).add(1, 'days'));
     const [ musicList, setMusicList ] = React.useState([])
-
+    
     const handleDormitoryChange = (e) => {
         setDormitory(e.target.value)
     }
-
+    
     const getMusicData = () => {
         dbGet('temporaryMusics/' + dormitory + '/' + date.format("YYYYMMDD"))
         .then((snapshot) => {
@@ -46,7 +45,9 @@ export default function MusicList() {
             console.error(error.code)
         })
     }
-
+    
+    if(musicList.length == 0) getMusicData()
+    
     return(
         <div>
             <Grid container item direction="column" justifyContent="center" alignItems="center">

@@ -31,7 +31,7 @@ export default function MusicRequest() {
     const [ dormitory, setDormitory ] = React.useState("사름")
     const [ searchQuery, setSearchQuery ] = React.useState("")
 
-    const [ date, setDate ] = React.useState(moment(new Date()));
+    const [ date, setDate ] = React.useState(moment(new Date()).add(1, 'days'));
     const [ musicList, setMusicList ] = React.useState([])
     const [ selectedMusic, setSelectedMusic ] = React.useState("")
 
